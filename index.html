@@ -25,33 +25,49 @@
         </nav>
     </header>
 
-    <div class="div1 container border p-0 rounded">
-        <h1>Cart</h1>
-        <table class="table-striped border w-100">
-            <thead>
-                <tr>
-                    <th>S/N</th>
-                    <th>Item</th>
-                    <th>Prize</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><input type="text" class="form-control"></td>
-                    <td><input type="number" class="form-control"></td>
-                    <td><input type="number" class="form-control"></td>
-                    <td><input type="text" class="form-control" disabled></td>
-                    <td class="div2 border p-1 bg-white mt-2">
-                        <span class="far fa-trash-alt"></span>
-                        <span class="far fa-edit"></span>
-                    </td>
-
-                </tr>
-            </tbody>
-        </table>
+    <div class="div1 container border mt-2 p-0 rounded">
+        <h1 class="text-white">Cart</h1>
+        <div class="div3">
+            <table class="p-2 w-100">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Item</th>
+                        <th>Prize</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="py-1">
+                        <td>1</td>
+                        <td><input type="text" class="form-control item"></td>
+                        <td><input type="number" class="form-control prize"></td>
+                        <td><input type="number" class="form-control quantity"></td>
+                        <td><input type="text" class="form-control total" disabled></td>
+                        <td class="div2 border p-1 bg-white">
+                            <button class="btn btn-del far fa-trash-alt"></button>
+                            <button class="btn btn-edit far fa-edit"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="div4">
+            <div class="div5 btn-group">
+                <button class="btn btn-plus btn-primary"><i class="fas fa-plus"></i></button>
+                <button class="btn btn-minus btn-warning"><i class="fas fa-minus"></i></button>
+            </div>
+            <div class="div6 mt-3">
+                <span>Grand Total (N):</span>
+                <div class="border-bottom g-total ml-2"></div>
+            </div>
+            <div style="clear: both;">
+                <span>............................</span>
+                <p>Customer's name and signature</p>
+            </div>
+            <button class="btn btn-success">Preview</button>
+        </div>
 
     </div>
 
