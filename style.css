@@ -1,0 +1,35 @@
+.nav-bar{
+    background-color: rgb(107, 107, 243);
+    text-align: center;
+}
+.nav-bar i{
+    font-size: 35px;
+    color: white;
+}
+.nav-bar .e{
+    font-size: 30px;
+}
+.nav-bar .recpt{
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(7, 7, 7);
+}
+h1{
+    text-align: center;
+    background-color: rgb(199, 70, 70);
+}
+thead{
+    text-align: center;
+}
+.div2{
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+.far{
+    font-size: 25px;
+    padding: 5px;
+}
+td{
+    padding: 10px;
+}
