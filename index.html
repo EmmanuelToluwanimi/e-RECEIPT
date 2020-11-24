@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- <script src="script.js"></script> -->
 
     <title>Hello, world!</title>
 </head>
@@ -28,7 +30,7 @@
     <div class="div1 container border mt-2 p-0 rounded">
         <h1 class="text-white">Cart</h1>
         <div class="div3">
-            <table class="p-2 w-100">
+            <table class="table table-striped p-2 w-100">
                 <thead>
                     <tr>
                         <th>S/N</th>
@@ -36,11 +38,12 @@
                         <th>Prize</th>
                         <th>Quantity</th>
                         <th>Total</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="py-1">
-                        <td>1</td>
+                    <tr>
+                        <td class="numb">1</td>
                         <td><input type="text" class="form-control item"></td>
                         <td><input type="number" class="form-control prize"></td>
                         <td><input type="number" class="form-control quantity"></td>
@@ -86,7 +89,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
         </script>
-    <script src="script.js"></script>
+
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function () {
+        var s_item = $('.item').val();
+        var s_prize = $('.prize');
+        var s_quantity = $('.quantity');
+        var s_total = $('.total');
+
+        //function to calculate values of price and quantity.
+        $('.prize,.quantity').keyup(function () {
+            s_total.val(s_prize.val() * s_quantity.val());
+        })
+
+    })
+
+</script>

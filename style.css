@@ -29,8 +29,10 @@ thead {
 
 .div2 {
     display: flex;
-    height: 40px;
+    height: 39px;
     align-items: center;
+    margin-top: 12px;
+    margin-right: 5px;
 }
 
 .far {
