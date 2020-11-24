@@ -41,6 +41,16 @@ thead {
     width: 50%;
     text-align: center;
 }
+.fa-trash-alt{
+    color: red;
+}
+.fa-edit{
+    color: blue;
+}
+.fa-save{
+    color: blue;
+    display: none;
+}
 
 td {
     padding-left: 30px;
