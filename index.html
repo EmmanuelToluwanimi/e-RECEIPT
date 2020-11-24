@@ -23,14 +23,14 @@
         <nav class="nav-bar border p-3">
             <i class="fas fa-file-invoice-dollar mr-4"></i>
             <span class="e">e-</span>
-            <span class="recpt">RECEIPT</span>
+            <span class="recpt text-white">RECEIPT</span>
         </nav>
     </header>
 
     <div class="div1 container border mt-2 p-0 rounded">
-        <h1 class="text-white">Cart</h1>
+        <h1 class="text-white">Invoice</h1>
         <div class="div3">
-            <table class="table table-striped p-2 w-100">
+            <table class="table table-striped table-info p-2 w-100">
                 <thead>
                     <tr>
                         <th>S/N</th>
@@ -42,7 +42,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="tr1">
                         <td class="numb">1</td>
                         <td><input type="text" class="form-control item"></td>
                         <td><input type="number" class="form-control prize"></td>
@@ -104,6 +104,15 @@
         //function to calculate values of price and quantity.
         $('.prize,.quantity').keyup(function () {
             s_total.val(s_prize.val() * s_quantity.val());
+        })
+
+        let nom = 1;
+        for (items of $('.numb')){
+            nom++;
+        }
+        $('.btn-plus').click(function () {
+            // $('.tr1').clone().appendTo('tbody')
+            $(`<tr class="tr1"><td class="numb">${nom}</td><td><input type="text" class="form-control item"></td><td><input type="number" class="form-control prize"></td><td><input type="number" class="form-control quantity"></td><td><input type="text" class="form-control total" disabled></td><td class="div2 border p-1 bg-white"><button class="btn btn-del far fa-trash-alt"></button><button class="btn btn-edit far fa-edit"></button></td></tr>`).appendTo('tbody')
         })
 
     })
