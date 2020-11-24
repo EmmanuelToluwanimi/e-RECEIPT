@@ -106,12 +106,13 @@
             s_total.val(s_prize.val() * s_quantity.val());
         })
 
-        let nom = 1;
-        for (items of $('.numb')){
-            nom++;
-        }
+        //function to 
         $('.btn-plus').click(function () {
             // $('.tr1').clone().appendTo('tbody')
+            let nom = 1;
+            for (items of $('.numb')) {
+                nom++;
+            }
             $(`<tr class="tr1"><td class="numb">${nom}</td><td><input type="text" class="form-control item"></td><td><input type="number" class="form-control prize"></td><td><input type="number" class="form-control quantity"></td><td><input type="text" class="form-control total" disabled></td><td class="div2 border p-1 bg-white"><button class="btn btn-del far fa-trash-alt"></button><button class="btn btn-edit far fa-edit"></button></td></tr>`).appendTo('tbody')
         })
 
