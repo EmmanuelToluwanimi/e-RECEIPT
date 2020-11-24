@@ -20,7 +20,7 @@
 
 <body>
     <header>
-        <nav class="nav-bar border p-3">
+        <nav class="nav-bar p-3">
             <i class="fas fa-file-invoice-dollar mr-4"></i>
             <span class="e">e-</span>
             <span class="recpt text-white">RECEIPT</span>
@@ -51,7 +51,6 @@
                         <td class="div2 border p-1 bg-white">
                             <button class="btn btn-del  far fa-trash-alt"></button>
                             <button class="btn btn-edit far fa-edit"></button>
-                            <button class="btn btn-save far fa-save"></button>
                         </td>
                     </tr>
                 </tbody>
@@ -109,7 +108,7 @@
             for (items of $('.numb')) {
                 nom++;
             }
-            $(`<tr class="tr1"><td class="numb">${nom}</td><td><input type="text" class="form-control item"></td><td><input type="number" class="form-control prize"></td><td><input type="number" class="form-control quantity"></td><td><input type="text" class="form-control total" disabled></td><td class="div2 border p-1 bg-white"><button class="btn btn-del far fa-trash-alt"></button><button class="btn btn-edit far fa-edit"></button><button class="btn btn-edit far fa-save"></button></td></tr>`).appendTo('tbody')
+            $(`<tr class="tr1"><td class="numb">${nom}</td><td><input type="text" class="form-control item"></td><td><input type="number" class="form-control prize"></td><td><input type="number" class="form-control quantity"></td><td><input type="text" class="form-control total" disabled></td><td class="div2 border p-1 bg-white"><button class="btn btn-del far fa-trash-alt"></button><button class="btn btn-edit far fa-edit"></button><button class="btn btn-edit d-none fr fa-save"></button></td></tr>`).appendTo('tbody')
 
             $('tr:not(:last)').find('.item,.prize,.quantity').prop('disabled', true);
         })
@@ -122,10 +121,9 @@
 
         //function to calculate values of price and quantity.
         $(document).on('keyup', '.prize, .quantity', function () {
-            // s_total.val(s_prize.val() * s_quantity.val());
-            cal($(this));
+            calc($(this));
         })
-        function cal(action) {
+        function calc(action) {
             pr = action.closest('tr').find('.prize').val();
             qty = action.closest('tr').find('.quantity').val();
             tot = qty * pr;
@@ -142,23 +140,37 @@
 
         //function that toggles disable rows and edit with btn-edit
         $(document).on('click', '.btn-edit', function () {
-            edt($(this));
+
+            if ($(this).hasClass('far fa-edit')) {
+                $(this).removeClass('.far fa-edit');
+                $(this).addClass('.far fa-save').attr('.fa-save')
+                $(this).closest('tr').find('.item,.prize,.quantity').prop('disabled', false);
+            } else {
+                $(this).removeClass('.far fa-save');
+                $(this).addClass('.far fa-edit')
+                $(this).closest('tr').find('.item,.prize,.quantity').prop('disabled', true);
+            }
+
         })
-        function edt(edtt) {
-            edtt.closest('tr').find('.item,.prize,.quantity').prop('disabled', false);
-            edtt.closest('tr').find('.fa-edit').toggle('.fa-save');
-            edtt.closest('tr').find('.fa-save').show();
-        }
+        // function edt(edtt) {
+        //     if ($(this).hasClass('.far fa-edit')) {
+
+        //     } else {
+        //         edtt.closest('tr').find('.item,.prize,.quantity').prop('disabled', true);
+        //     }
+        //     // edtt.closest('tr').find('.fa-edit').hide();
+        //     // edtt.closest('tr').find('.fa-save').show();
+        // }
 
         //function that disables inputs after editting
-        $(document).on('click','.btn-save', function () {
-            sav($(this));
-        })
-        function sav(save) { 
-            save.closest('tr').find('.fa-save').toggle('.fa-edit');
-            save.closest('tr').find('.fa-edit').show()
-            save.closest('tr').find('.item,.prize,.quantity').prop('disabled', true)
-        }
+        // $(document).on('click','far fa-save', function () {
+        //     sav($(this));
+        // })
+        // function sav(save) {
+        //     // save.closest('tr').find('.fa-save').hide();
+        //     // save.closest('tr').find('.fa-edit').show();
+        //     save.closest('tr').find('.item,.prize,.quantity').prop('disabled', true);
+        // }
 
     })
 
