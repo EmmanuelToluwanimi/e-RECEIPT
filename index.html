@@ -109,6 +109,10 @@
                 nom++;
             }
             $(`<tr class="tr1"><td class="numb">${nom}</td><td><input type="text" class="form-control item"></td><td><input type="number" class="form-control prize"></td><td><input type="number" class="form-control quantity"></td><td><input type="text" class="form-control total" disabled></td><td class="div2 border p-1 bg-white"><button class="btn btn-del far fa-trash-alt"></button><button class="btn btn-edit far fa-edit"></button></td></tr>`).appendTo('tbody')
+
+            $('tr:not(:last)').find('input').prop('disabled','true');
+
+
         })
 
         //function that deletes rows with minus btn
@@ -137,7 +141,13 @@
             dell.closest('tr').remove();
         }
 
-        
+        //function that toggles disable rows and edit with btn-edit
+        // $(document).on('click','.btn-edit', function () {
+        //     edt($(this));
+        // })
+        // function edt(edtt) {
+            
+        // }
 
     })
 
