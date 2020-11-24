@@ -129,8 +129,15 @@
             action.closest('tr').find('.total').val(tot);
         }
 
-        
+        //function to delete a particular row
+        $(document).on('click', '.btn-del', function () {
+            ddel($(this));
+        })
+        function ddel(dell) {
+            dell.closest('tr').remove();
+        }
 
+        
 
     })
 
