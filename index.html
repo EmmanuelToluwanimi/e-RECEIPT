@@ -124,19 +124,20 @@
             calc($(this));
         })
         function calc(action) {
-            pr = action.closest('tr').find('.prize').val();
+            prc = action.closest('tr').find('.prize').val();
             qty = action.closest('tr').find('.quantity').val();
-            tot = qty * pr;
+            tot = qty * prc;
             action.closest('tr').find('.total').val(tot);
         }
 
         //function to delete a particular row
         $(document).on('click', '.btn-del', function () {
-            ddel($(this));
+            // ddel($(this));
+            $(this).closest('tr').remove();
         })
-        function ddel(dell) {
-            dell.closest('tr').remove();
-        }
+        // function ddel(dell) {
+        //     dell.closest('tr').remove();
+        // }
 
         //function that toggles disable rows and edit with btn-edit
         $(document).on('click', '.btn-edit', function () {
