@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <!-- <script src="script.js"></script> -->
 
@@ -93,6 +94,8 @@
 </body>
 
 </html>
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -109,8 +112,9 @@
                 nom++;
             }
             if ($('tr:last').find('.item,.prize,.quantity').val() == '') {
-                alert('fill all spaces');
-                $('.item,.prize,.quantity').closest('tr').effect('shake');
+               
+                $('tr:last').find('.item,.prize,.quantity').effect('shake');
+               
             } else {
                 $(`<tr class="tr1"><td class="numb">${nom}</td><td><input autofocus type="text" class="form-control item"></td><td><input type="number" class="form-control prize"></td><td><input type="number" class="form-control quantity"></td><td><input type="text" class="form-control total" disabled></td><td class="div2 border p-1 bg-white"><button class="btn btn-del far fa-trash-alt"></button><button class="btn btn-edit far fa-edit"></button><button class="btn btn-edit d-none fr fa-save"></button></td></tr>`).appendTo('tbody')
                 $('tr:not(:last)').find('.item,.prize,.quantity').prop('disabled', true);
