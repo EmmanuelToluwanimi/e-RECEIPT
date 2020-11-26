@@ -58,7 +58,13 @@ $(document).ready(function () {
     function cerl() {
         var sum = 0;
         $('.total').each(function () {
-            sum += parseFloat($(this).val());
+            if ($('.total:last').val() == '') {
+                $('.total:last').val(0);
+                sum += parseFloat($(this).val());
+            }
+            else {
+                sum += parseFloat($(this).val());
+            }
         });
         $('.grtotal').text(sum);
     }
