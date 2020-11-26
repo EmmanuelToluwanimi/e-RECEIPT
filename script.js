@@ -8,7 +8,7 @@ $(document).ready(function () {
             $('tr:last').find('.item,.prize,.quantity').effect('shake');
 
         } else {
-            $(`<tr class="tr1"><td class="numb"></td><td><input autofocus type="text" class="form-control item"></td><td><input type="number" class="form-control prize"></td><td><input type="number" class="form-control quantity"></td><td><input type="text" class="form-control total" disabled></td><td class="div2 border p-1 bg-white"><button class="btn btn-del far fa-trash-alt"></button><button class="btn btn-edit far fa-edit"></button><button class="btn btn-edit d-none fr fa-save"></button></td></tr>`).appendTo('tbody')
+            $(`<tr class="tr1"><td class="numb"></td><td><input autofocus type="text" class="form-control item"></td><td><input type="text" class="form-control prize"></td><td><input type="text" class="form-control quantity"></td><td><input type="text" class="form-control total" disabled></td><td class="div2 border p-1 bg-white"><button class="btn btn-del far fa-trash-alt"></button><button class="btn btn-edit far fa-edit"></button><button class="btn btn-edit d-none fr fa-save"></button></td></tr>`).appendTo('tbody')
             $('tr:not(:last)').find('.item,.prize,.quantity').prop('disabled', true);
         }
         addSerialNumber();
@@ -45,11 +45,23 @@ $(document).ready(function () {
         calc($(this));
     })
     function calc(action) {
+        let regex = /[0-9]$/;
+
         prc = action.closest('tr').find('.prize').val();
         qty = action.closest('tr').find('.quantity').val();
+        if (regex.test(prc)) {
+            $('.prize:last').css('color', 'black');
+        } else {
+            $('.prize:last').css('color', 'red');
+        }
+        if (regex.test(qty)) {
+            $('.quantity:last').css('color', 'black');
+        } else {
+            $('.quantity:last').css('color', 'red');
+        }
         tot = qty * prc;
         action.closest('tr').find('.total').val(tot);
-        action.closest('.div1').find('.grtotal').html(tot);
+        // action.closest('.div1').find('.grtotal').html(tot);
 
         cerl();
     }
@@ -75,6 +87,7 @@ $(document).ready(function () {
         $(this).closest('tr').remove();
 
         minusSerialNumber();
+        cerl();
     })
 
 
