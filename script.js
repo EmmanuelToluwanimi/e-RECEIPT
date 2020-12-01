@@ -8,7 +8,7 @@ $(document).ready(function () {
             $('tr:last').find('.item,.prize,.quantity').effect('shake');
 
         } else {
-            $(`<tr class="tr1"><td class="numb"></td><td><input autofocus type="text" class="form-control item"></td><td><input type="text" class="form-control prize"></td><td><input type="text" class="form-control quantity"></td><td><input type="text" class="form-control total" disabled></td><td class="div2 border p-1 bg-white"><button class="btn btn-del far fa-trash-alt"></button><button class="btn btn-edit far fa-edit"></button><button class="btn btn-edit d-none fr fa-save"></button></td></tr>`).appendTo('tbody')
+            $(`<tr class="tr1"><td class="numb"></td><td><input autofocus type="text" class="form-control item"></td><td><input type="number" class="form-control prize"></td><td><input type="number" class="form-control quantity"></td><td><input type="text" class="form-control total" disabled></td><td class="div2 border p-1 bg-white"><button class="btn btn-del far fa-trash-alt"></button><button class="btn btn-edit far fa-edit"></button><button class="btn btn-edit d-none fr fa-save"></button></td></tr>`).appendTo('tbody')
             $('tr:not(:last)').find('.item,.prize,.quantity').prop('disabled', true);
         }
         addSerialNumber();
